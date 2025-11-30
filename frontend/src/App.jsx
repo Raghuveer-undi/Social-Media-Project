@@ -9,7 +9,7 @@ import {
 import './index.css';
 import './App.css';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://social-media-project-pmlz.onrender.com';
 
 function App() {
   const [activeTab, setActiveTab] = useState('post');
