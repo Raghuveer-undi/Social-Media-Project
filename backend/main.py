@@ -12,7 +12,7 @@ app = FastAPI(title="Social Media Agent API")
 # Allow CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"], # allowing "*" is fine for now
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -60,4 +60,5 @@ async def generate_post(request: PostRequest):
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
