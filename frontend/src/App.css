@@ -1,0 +1,161 @@
+/* App.css - Layout & Component Structure */
+
+/* Reset the default Vite #root styles that force centering */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Main Container Layout */
+.app-container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Header Section --- */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  text-transform: uppercase;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Tab Navigation --- */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-btn:hover {
+  background: var(--bg-card-hover);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 8px 20px -4px var(--accent-glow);
+}
+
+/* --- Grid Layout --- */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 380px 1fr;
+  }
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card, .result-card {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.spin {
+  animation: logo-spin 1s linear infinite;
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Grid Layout Updates --- */
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  /* NEW: Align items to the start so they don't stretch to match height */
+  align-items: start; 
+}
+
+@media (min-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 380px 1fr;
+  }
+}
+
+/* NEW: Fix the Input Section (Left Sidebar) in position */
+.input-section {
+  position: sticky;
+  top: 2rem; /* Stick to top with 2rem gap */
+  height: fit-content; /* Only take necessary height */
+}
+
+/* Ensure the result card fills the available space but doesn't overflow page */
+.result-section {
+  min-width: 0; /* Prevents flex/grid blowout */
+}

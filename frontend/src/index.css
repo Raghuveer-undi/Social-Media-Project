@@ -1,0 +1,411 @@
+:root {
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-primary: #6366f1; /* Indigo */
+  --accent-secondary: #ec4899; /* Pink */
+  --accent-glow: rgba(99, 102, 241, 0.15);
+  --border-color: #334155;
+  --success: #22c55e;
+  --error: #ef4444;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 40%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Tabs */
+.tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  background: var(--bg-card-hover);
+  color: white;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .grid-layout {
+    grid-template-columns: 350px 1fr;
+    align-items: start;
+  }
+}
+
+/* Cards */
+.card {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.icon-accent {
+  color: #818cf8;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+input, select {
+  width: 100%;
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  color: white;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+  background-color: rgba(15, 23, 42, 0.9);
+}
+
+.submit-btn {
+  width: 100%;
+  background: var(--text-primary);
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.tips-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px dashed rgba(99, 102, 241, 0.3);
+  border-radius: 0.75rem;
+  color: #818cf8;
+  font-size: 0.875rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+/* Results */
+.result-section {
+  min-height: 400px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn:hover {
+  background: var(--bg-card-hover);
+  color: white;
+}
+
+.agent-output {
+  white-space: pre-wrap;
+  line-height: 1.7;
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+
+/* Style for bolding in the output */
+.agent-output strong, .agent-output b {
+  color: #38bdf8; /* Light blue for emphasis */
+  font-weight: 700;
+}
+
+.empty-state {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  text-align: center;
+  border: 2px dashed var(--border-color);
+  border-radius: 1rem;
+  background: rgba(30, 41, 59, 0.3);
+}
+
+.empty-icon {
+  color: var(--border-color);
+  margin-bottom: 1rem;
+}
+
+.error-msg {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* --- Markdown Output Styling --- */
+
+/* --- Markdown Output Styling & Scrolling --- */
+
+.agent-output {
+  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  
+  /* NEW: Constrain height and enable internal scrolling */
+  max-height: 60vh; /* Takes up 60% of the viewport height max */
+  overflow-y: auto; /* Enables vertical scrolling */
+  padding-right: 1rem; /* Space for the scrollbar */
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Styling (Modern & Dark) */
+.agent-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.agent-output::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5); /* Dark track */
+  border-radius: 4px;
+}
+
+.agent-output::-webkit-scrollbar-thumb {
+  background: #475569; /* Slate grey handle */
+  border-radius: 4px;
+  border: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+.agent-output::-webkit-scrollbar-thumb:hover {
+  background: #64748b; /* Lighter grey on hover */
+}
+
+/* ... Keep your existing H1, H2, UL, LI styles below this ... */
+
+/* 1. HEADINGS: Reduce massive gaps around headers */
+.agent-output h1, 
+.agent-output h2, 
+.agent-output h3,
+.agent-output h4 {
+  color: #fff;
+  margin-top: 1.5rem;    /* Reduced from default */
+  margin-bottom: 0.5rem; /* Reduced to keep text close to header */
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.agent-output h1 { font-size: 1.5rem; border-bottom: 1px solid #334155; padding-bottom: 0.5rem; }
+.agent-output h2 { font-size: 1.25rem; color: #818cf8; }
+.agent-output h3 { font-size: 1.1rem; color: #38bdf8; }
+
+/* 2. PARAGRAPHS: Standard spacing */
+.agent-output p {
+  margin-bottom: 0.75rem; /* Reduced from 1rem */
+  margin-top: 0;
+}
+
+/* 3. LISTS: The Critical Fix for Gaps */
+.agent-output ul, 
+.agent-output ol {
+  margin-left: 1.25rem;
+  margin-bottom: 1rem;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+
+.agent-output li {
+  margin-bottom: 0.25rem; /* Tighter list items */
+  padding-left: 0.25rem;
+}
+
+/* THE MAGIC FIX: Remove margins from paragraphs inside lists */
+/* This stops the "double gap" issue seen in your screenshot */
+.agent-output li p {
+  margin: 0; 
+  display: inline; /* Ensures text sits next to the bullet, not below it */
+}
+
+/* 4. STRONG/BOLD text */
+.agent-output strong, 
+.agent-output b {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* 5. BLOCKQUOTES */
+.agent-output blockquote {
+  border-left: 4px solid #6366f1;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+}
+
+/* 6. LINKS */
+.agent-output a {
+  color: #ec4899;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
